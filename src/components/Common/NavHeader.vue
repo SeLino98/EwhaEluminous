@@ -17,14 +17,15 @@
         <div>E-luminous</div>
         <hr style="background-color: white">
         <b-nav vertical style="display:flex">
-          <b-nav-item href="#link-1" @click="hide" class="m-auto">#메인 페이지</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#전체 프로젝트</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#배터리</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#반도체</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#바이오</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#공장설계</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#신소재/에너지</b-nav-item>
-          <b-nav-item href="#link-2" @click="hide" class="m-auto">#만든이들</b-nav-item>
+          <b-nav-item href="/" @click="hide" class="m-auto">#메인 페이지</b-nav-item>
+          <b-nav-item href="/allProject" @click="hide" class="m-auto">#전체 프로젝트</b-nav-item>
+          <b-nav-item href="/battery" @click="hide" class="m-auto">#배터리</b-nav-item>
+          <b-nav-item href="/semiconductor" @click="hide" class="m-auto">#반도체</b-nav-item>
+          <b-nav-item href="/bio" @click="hide" class="m-auto">#바이오</b-nav-item>
+          <b-nav-item href="/processDesign" @click="hide" class="m-auto">#공정설계</b-nav-item>
+          <b-nav-item href="/materialsEnergy"  @click="hide" class="m-auto">#신소재/에너지</b-nav-item>
+          <b-nav-item href="/editProject" @click="hide" class="m-auto">#프로젝트 작성</b-nav-item>
+          <b-nav-item href="/about" @click="hide" class="m-auto">#만든이들</b-nav-item>
         </b-nav>
       
       </div>
