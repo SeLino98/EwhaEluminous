@@ -98,7 +98,7 @@
   }
   .section {
     margin-bottom: 20px;
-    background-color: rgb(12, 91, 12);
+    background-color: #00462A;
     color: white;
   }
   .section label {

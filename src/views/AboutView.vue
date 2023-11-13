@@ -59,8 +59,8 @@ export default {
 }
 
 .creators-section {
-  background-color: green;
-  color: black;
+  background-color: #00462A;
+  color: white;
   padding: 20px;
   margin: 0 auto;
 }

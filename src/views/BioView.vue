@@ -74,7 +74,7 @@ export default {
 }
 
 #title {
-  background-color: green;
+  background-color: #00462A;
   max-width: 70%;
   margin: 0 auto;
 }

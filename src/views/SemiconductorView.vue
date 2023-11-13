@@ -24,7 +24,7 @@
     <br>
     <hr>
     <div class="content">
-      반도체 페이지 입니다.<br>
+      반도체 페이지입니다.<br>
       <br>
     </div>
   </div>
@@ -74,7 +74,7 @@ export default {
 }
 
 #title {
-  background-color: green;
+  background-color: #00462A;
   max-width: 70%;
   margin: 0 auto;
 }
