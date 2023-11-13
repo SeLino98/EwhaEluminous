@@ -6,8 +6,10 @@
       <div>이화여자대학교 화공신소재공학전공 학술동아리</div>
       <br>
     </div>
-    <img id="ewha-logo" alt="ewha-logo" src = "../assets/ewha.png">
-
+   
+    <Transition name="bounce" appear>
+      <img id="ewha-logo" alt="ewha-logo" src = "../assets/ewha.png">
+    </Transition>
     <hr>
 
     <div class="input-group">  
@@ -68,13 +70,37 @@ export default {
 </script>
 
 <style>
+.bounce-enter-active {
+  animation: bounce-in 1s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  
+  100% {
+    transform: translateX(0);
+    opacity: 0.3;
+  }
+}
+
+
 .home {
   padding: 4%;
 }
 
 
+
 #ewha-logo {
-  max-width:  40%;
+  max-width:  80%;
+  position: absolute;
+  opacity: 0.3;
+  top: 5%;
+  left: 40%;
 }
 
 
