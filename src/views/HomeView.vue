@@ -1,16 +1,22 @@
 <template>
   <div class="home">
-    <div id="info">
-      <div>2023-2</div>
-      <div>E-luminous</div>
-      <div>이화여자대학교 화공신소재공학전공 학술동아리</div>
-      <br>
-    </div>
-   
-    <Transition name="bounce" appear>
-      <img id="ewha-logo" alt="ewha-logo" src = "../assets/ewha.png">
+    <div class="logo">
+      <Transition name="bounce" appear>
+          <img id="ewha-logo" alt="ewha-logo" src = "../assets/ewha.png">
+        <hr>
     </Transition>
-    <hr>
+  </div>
+
+      <Transition name="bounceinfo" appear>
+      <div id="info" style="text-align: left; margin-top: 30%;">
+        <div style="font-weight: 700; font-size: 48px; opacity: 0.5;">2023-2</div>
+        <div style="font-weight: 700; font-size: 48px">E-luminous</div>
+        <!-- <div>이화여자대학교 화공신소재공학전공 학술동아리</div> -->
+      </div>
+    </Transition>
+
+    <br>
+    <br>
 
     <div class="input-group">  
       <input type="text" class="form-control" placeholder="Search">
@@ -71,7 +77,7 @@ export default {
 
 <style>
 .bounce-enter-active {
-  animation: bounce-in 1s;
+  animation: bounce-in 2s;
 }
 .bounce-leave-active {
   animation: bounce-in 0.5s reverse;
@@ -89,18 +95,35 @@ export default {
 }
 
 
-.home {
-  padding: 4%;
+.bounceinfo-enter-active {
+  animation: bounceinfo-in 2s;
+}
+@keyframes bounceinfo-in {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }
 
+.home {
+  padding: 4%;
+  overflow: hidden;
+}
 
+.logo {
+  position: relative; 
+}
 
 #ewha-logo {
-  max-width:  80%;
-  position: absolute;
+  max-width: 80%;
+  position: absolute; 
   opacity: 0.3;
-  top: 5%;
   left: 40%;
+  object-fit: cover;
 }
 
 
