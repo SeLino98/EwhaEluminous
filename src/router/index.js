@@ -8,6 +8,7 @@ import BioView from '../views/BioView.vue'
 import ProcessDesignView from '../views/ProcessDesignView.vue'
 import MaterialsEnergyView from '../views/MaterialsEnergyView.vue'
 import EditProjectView from '../views/EditProjectView.vue'
+import ThesisView from '../views/ThesisView.vue'
 
 Vue.use(VueRouter)
 
@@ -56,6 +57,11 @@ const routes = [
     path: '/materialsEnergy',
     name: 'materialsEnergy',
     component: MaterialsEnergyView
+  },
+  {
+    path: '/thesis/:contentId',
+    name: 'thesis',
+    component: ThesisView
   }
 ]
 
