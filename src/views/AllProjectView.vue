@@ -26,14 +26,15 @@
     <div class="content">
       <ul>
         <li v-for="(content, index) in displayedContent" :key="index">
-          <div class="content-item" @click="goToThesisView(1)">
+          <div class="content-item" @click="goToThesisView(index)">
             <div class="content-details">
               <h3 class="content-title">{{ content.title }}</h3>
-              <div class="keywords">
+              <!-- <h3 class="content-title">{{ content.title }}</h3> -->
+              <!-- <div class="keywords">
                 <span v-for="(keyword, keyIndex) in content.keywords" :key="keyIndex">
                   <span class="keyword">#{{ keyword }}</span>
                 </span>
-              </div>
+              </div> -->
             </div>
           </div>
         </li>
@@ -55,22 +56,37 @@
 
 <script>
 // @ is an alias to /src
+import axios from 'axios';
 
 export default {
   name: 'BatteryView',
   data() {
     return {
       contentList: [
-        { title: '컨텐츠 1', keywords: ['배터리', '키워드2', '키워드3'] },
-        { title: '컨텐츠 2', keywords: ['배터리', '키워드5'] },
-        { title: '컨텐츠 3', keywords: ['키워드1', '키워드2', '키워드3'] },
-        { title: '컨텐츠 4', keywords: ['키워드4', '키워드5'] },
-        { title: '컨텐츠 5', keywords: ['키워드1', '키워드2', '키워드3'] },
-        { title: '컨텐츠 6', keywords: ['키워드1', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 1', keywords: ['배터리', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 2', keywords: ['배터리', '키워드5'] },
+        // { title: '컨텐츠 3', keywords: ['키워드1', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 4', keywords: ['키워드4', '키워드5'] },
+        // { title: '컨텐츠 5', keywords: ['키워드1', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 6', keywords: ['키워드1', '키워드2', '키워드3'] },
       ],
       currentPage: 0, // 현재 페이지를 나타내는 변수 추가
       itemsPerPage: 5, // 한 페이지에 보여질 항목 수
     };
+  },
+  created() {
+    // axios의 get을 이용하여 비동기방식으로 서버와 통신.
+    axios
+      .get('http://13.125.53.90:8080/thesis')
+      .then((response) => {
+        console.log(response.data)
+        this.contentList = response.data
+        // this.contentList = response.data;
+      })
+      .catch((error) => {
+        console.dir(error);
+      })
+    
   },
   computed: {
     totalPages() {

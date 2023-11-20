@@ -61,6 +61,7 @@ const routes = [
   {
     path: '/thesis/:contentId',
     name: 'thesis',
+    props: true,
     component: ThesisView
   }
 ]
