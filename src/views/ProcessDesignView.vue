@@ -28,7 +28,7 @@
     <div class="content">
       <ul>
         <li v-for="(content, index) in displayedContent" :key="index">
-          <div class="content-item" @click="goToThesisView(index)">
+          <div class="content-item" @click="goToThesisView(content.id-1)">
             <div class="content-details">
               <h5 class="content-title">{{ content.title }}</h5>
               <hr>
