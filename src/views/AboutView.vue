@@ -6,7 +6,6 @@
       <div class="creator-grid">
         <div class="creator" v-for="(creator, index) in creators" :key="index">
           <h3>{{ creator.name }}</h3>
-          <p>{{ creator.role }}</p>
         </div>
       </div>
       <div class="content">
@@ -17,16 +16,16 @@
           동아리원끼리 화합하면서,<br>
          서로의 개발 장벽을 낮추는 데에 초점을 두고 운영 중입니다.</p>
       </div>
+      <br>
       <div class="qr-links">
         <div class="qr-link">
           <h4>동아리 오픈 카톡</h4>
           <!-- QR 이미지 또는 링크 -->
-          <img id="openLink" src="../assets/DoItKakaoLink.jpg" alt="동아리 오픈 카톡 QR 코드">
         </div>
           <div class="qr-link">
             <h4>버그 신고</h4>
             <!-- QR 이미지 또는 링크 -->
-            <img id="openLink" src="../assets/DoItKakaoLink.jpg" alt="개발자 QR 코드">
+            <img id="openLink" src="../assets/doIT.png" alt="동아리 오픈 카톡 QR 코드">
           </div>
         </div>
       </div>
@@ -44,8 +43,6 @@ export default {
         { name: '이창곤', role: '담당2' },
         { name: '조남현', role: '담당2' },
         { name: '최재성', role: '담당1' },
-        { name: '이름1', role: '담당1' },
-        { name: '이름2', role: '담당2' },
       ]
     };
   }

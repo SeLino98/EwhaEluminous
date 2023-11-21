@@ -23,7 +23,16 @@
             <h4 class="section-title">목차</h4>
             <br>
             <ul class="table-of-contents">
-            <li v-for="(section, index) in content.contents" :key="index">{{ section }}</li>
+            <li v-for="(section, index) in content.contents" :key="index">
+                <br>
+                <div v-for="(con, idx) in section" :key="idx">
+                    <h6 v-if="idx==0" style="">{{con}}</h6>
+                    <a v-if="idx!=0">&nbsp;&nbsp;&nbsp;{{con}}</a>
+                    
+                </div>
+            </li>
+
+                
             </ul>
             <br>
 
@@ -31,16 +40,46 @@
             <hr>
             <h4 class="section-title">본론</h4>
             <br>
-            <div class="main-content" v-html="content.text"></div>
+            <ul class="table-of-contents">
+            <li v-for="(section, index) in content.contents" :key="index">
+                <br>
+                <div v-for="(con, idx) in section" :key="idx">
+                    <div v-if="idx==0">
+                        <h6 v-if="idx==0" style="">{{con}}</h6>
+                        <a v-if="con!=''">&nbsp;{{content.text[index][idx]}}</a>
+                    </div>
+                    <div v-if="idx!=0">
+                        <h6 v-if="idx!=0">{{con}}</h6>
+                        &nbsp;{{content.text[index][idx]}}
+                    <br>
+                    <br>
+                    </div>
+                </div>
+            </li>
+
+            </ul>
             <br>
 
             <br>
             <hr>
             <h4 class="section-title">참고문헌</h4>
             <br>
-            <ul class="references">
-            <li v-for="(reference, index) in content.references" :key="index">{{ reference }}</li>
-            <br>
+            <ul class="table-of-contents">
+            <li v-for="(line, index) in content.references" :key="index">
+                <div v-if="line[1]==''">{{line[0]}}</div>
+                <div v-else><a v-bind:href=line[1]>{{line[0]}}</a></div>
+                <br>
+                <!-- <br>
+                <div v-for="(item, idx) in line" :key="idx">
+                    <div v-if="idx==1">
+                        <div v-if="item==''">{{references[index][0]}}</div>
+                        <div v-else>
+                            <a :href=references[index][1]>{{reference[index][0]}}</a>
+                        </div>
+                    </div>
+                </div> -->
+            </li>
+
             </ul>
 
             <hr>
@@ -77,6 +116,7 @@ export default {
                 // mainContent: '<p>본론 내용</p>',
                 // references: ['참고문헌1', '참고문헌2'],
             },
+            searchText : ""
         };
     },
     created() {
@@ -131,5 +171,9 @@ export default {
   border: 1px solid #00462A;
   border-radius: 3px;
   margin-left: 5px; /* 적당한 여백 추가 */
+}
+
+li {
+    text-align: left;
 }
 </style>

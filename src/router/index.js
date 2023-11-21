@@ -9,6 +9,7 @@ import ProcessDesignView from '../views/ProcessDesignView.vue'
 import MaterialsEnergyView from '../views/MaterialsEnergyView.vue'
 import EditProjectView from '../views/EditProjectView.vue'
 import ThesisView from '../views/ThesisView.vue'
+import SearchResultView from '../views/SearchResultView.vue'
 
 Vue.use(VueRouter)
 
@@ -63,6 +64,12 @@ const routes = [
     name: 'thesis',
     props: true,
     component: ThesisView
+  },
+  {
+    path: '/searchResult/:searchText',
+    name: 'searchResult',
+    props: "",
+    component: SearchResultView
   }
 ]
 

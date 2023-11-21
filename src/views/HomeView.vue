@@ -19,13 +19,14 @@
     <br>
 
     <div class="input-group">  
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search" v-model="searchText" @keyup.enter="goToSearchResultView()">
       <div class="input-group-append">
-        <b-button class="btn" style="position: relative; z-index: auto;background-color: white;  border-color: lightgray; border-left-color: transparent;"> 
+        <b-button class="btn" @click="goToSearchResultView()" style="position: relative; z-index: auto;background-color: white;  border-color: lightgray; border-left-color: transparent;"> 
           <b-icon icon="search"/>
         </b-button>
       </div>
     </div>
+    <br>
     <br>
     <div class="title">
       #23-2 프로젝트
@@ -70,7 +71,17 @@
 
 export default {
   name: 'HomeView',
-  components: {
+  data() {
+    return{
+      searchText : ""
+    }
+  },
+  methods: {
+        goToSearchResultView() {
+      // '/thesis/:contentId' 경로로 이동하면서 contentId를 동적 라우팅 파라미터로 전달
+      this.$router.push({ name: 'searchResult', params: { searchText: this.searchText } });
+    },
+    
   }
 }
 </script>

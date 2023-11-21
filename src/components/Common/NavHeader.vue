@@ -24,7 +24,6 @@
           <b-nav-item href="/bio" @click="hide" class="m-auto">#바이오</b-nav-item>
           <b-nav-item href="/processDesign" @click="hide" class="m-auto">#공정설계</b-nav-item>
           <b-nav-item href="/materialsEnergy"  @click="hide" class="m-auto">#신소재/에너지</b-nav-item>
-          <b-nav-item href="/editProject" @click="hide" class="m-auto">#프로젝트 작성</b-nav-item>
           <b-nav-item href="/about" @click="hide" class="m-auto">#만든이들</b-nav-item>
         </b-nav>
       

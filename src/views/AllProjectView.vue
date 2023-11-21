@@ -6,9 +6,9 @@
     </div>
     <br><br><br>
     <div class="input-group">  
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search" v-model="searchText" @keyup.enter="goToSearchResultView()">
       <div class="input-group-append">
-        <b-button class="btn" style="position: relative; z-index: auto;background-color: white;  border-color: lightgray; border-left-color: transparent;"> 
+        <b-button class="btn" @click="goToSearchResultView()" style="position: relative; z-index: auto;background-color: white;  border-color: lightgray; border-left-color: transparent;"> 
           <b-icon icon="search"/>
         </b-button>
       </div>
@@ -23,12 +23,14 @@
     </div>
     <br>
     <hr>
+    <br>
     <div class="content">
       <ul>
         <li v-for="(content, index) in displayedContent" :key="index">
-          <div class="content-item" @click="goToThesisView(index)">
+          <div class="content-item" @click="goToThesisView(currentPage*5+index)">
             <div class="content-details">
-              <h3 class="content-title">{{ content.title }}</h3>
+              <h5 class="content-title">{{ content.title }}</h5>
+              <hr>
               <!-- <h3 class="content-title">{{ content.title }}</h3> -->
               <!-- <div class="keywords">
                 <span v-for="(keyword, keyIndex) in content.keywords" :key="keyIndex">
@@ -71,9 +73,10 @@ export default {
         // { title: '컨텐츠 6', keywords: ['키워드1', '키워드2', '키워드3'] },
       ],
       currentPage: 0, // 현재 페이지를 나타내는 변수 추가
-      itemsPerPage: 5, // 한 페이지에 보여질 항목 수
+      itemsPerPage: 5, // 한 페이지에 보여질 항목 수,
+      searchText : ""
     };
-  },
+  },  
   created() {
     // axios의 get을 이용하여 비동기방식으로 서버와 통신.
     axios
@@ -119,6 +122,10 @@ export default {
   components: {
   },
   methods: {
+    goToSearchResultView() {
+      // '/thesis/:contentId' 경로로 이동하면서 contentId를 동적 라우팅 파라미터로 전달
+      this.$router.push({ name: 'searchResult', params: { searchText: this.searchText } });
+    },
     prevPage() {
       if (this.currentPage > 0) {
         this.currentPage--;
@@ -269,6 +276,15 @@ export default {
   padding: 5px 10px;
   margin: 0 5px;
   cursor: pointer;
+}
+
+li {list-style-type: none;}
+ul {
+  padding-inline-start: 0px !important;
+}
+
+h5 {
+  text-align: left;
 }
 
 </style>
