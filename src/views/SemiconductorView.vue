@@ -53,12 +53,12 @@ export default {
   data() {
     return {
       contentList: [
-        { title: '컨텐츠 1', keywords: ['배터리', '키워드2', '키워드3'] },
-        { title: '컨텐츠 2', keywords: ['배터리', '키워드5'] },
-        { title: '컨텐츠 3', keywords: ['키워드1', '키워드2', '키워드3'] },
-        { title: '컨텐츠 4', keywords: ['키워드4', '키워드5'] },
-        { title: '컨텐츠 5', keywords: ['키워드1', '키워드2', '키워드3'] },
-        { title: '컨텐츠 6', keywords: ['키워드1', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 1', keywords: ['배터리', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 2', keywords: ['배터리', '키워드5'] },
+        // { title: '컨텐츠 3', keywords: ['키워드1', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 4', keywords: ['키워드4', '키워드5'] },
+        // { title: '컨텐츠 5', keywords: ['키워드1', '키워드2', '키워드3'] },
+        // { title: '컨텐츠 6', keywords: ['키워드1', '키워드2', '키워드3'] },
       ],
       currentPage: 0, // 현재 페이지를 나타내는 변수 추가
       itemsPerPage: 5, // 한 페이지에 보여질 항목 수,

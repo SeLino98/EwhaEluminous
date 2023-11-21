@@ -17,14 +17,14 @@
         <div>E-luminous</div>
         <hr style="background-color: white">
         <b-nav vertical style="display:flex">
-          <b-nav-item href="/" @click="hide" class="m-auto">#메인 페이지</b-nav-item>
-          <b-nav-item href="/allProject" @click="hide" class="m-auto">#전체 프로젝트</b-nav-item>
-          <b-nav-item href="/battery" @click="hide" class="m-auto">#배터리</b-nav-item>
-          <b-nav-item href="/semiconductor" @click="hide" class="m-auto">#반도체</b-nav-item>
-          <b-nav-item href="/bio" @click="hide" class="m-auto">#바이오</b-nav-item>
-          <b-nav-item href="/processDesign" @click="hide" class="m-auto">#공정설계</b-nav-item>
-          <b-nav-item href="/materialsEnergy"  @click="hide" class="m-auto">#신소재/에너지</b-nav-item>
-          <b-nav-item href="/about" @click="hide" class="m-auto">#만든이들</b-nav-item>
+          <b-nav-item @click="[hide, goToHomePage()]" class="m-auto">#메인 페이지</b-nav-item>
+          <b-nav-item @click="[hide, goToAllProjectPage()]" class="m-auto">#전체 프로젝트</b-nav-item>
+          <b-nav-item @click="[hide, goToBatteryPage()]" class="m-auto">#배터리</b-nav-item>
+          <b-nav-item @click="[hide, goToSemiconductorPage()]" class="m-auto">#반도체</b-nav-item>
+          <b-nav-item @click="[hide, goToBioPage()]" class="m-auto">#바이오</b-nav-item>
+          <b-nav-item @click="[hide, goToProcessDesignPage()]" class="m-auto">#공정설계</b-nav-item>
+          <b-nav-item @click="[hide, goToMaterialsEnergyPage()]" class="m-auto">#신소재/에너지</b-nav-item>
+          <b-nav-item @click="[hide, goToAboutPage()]" class="m-auto">#만든이들</b-nav-item>
         </b-nav>
       
       </div>
@@ -47,7 +47,47 @@ export default {
       let windowScroll = body.scrollTop || documentElement.scrollTop;
       let height = documentElement.scrollHeight - documentElement.clientHeight;
       this.value = (windowScroll / height) * 100 + "%";
-    }
+    },
+    goToHomePage() {
+      if (this.$route.path !== '/'){
+        this.$router.push('/')
+      }
+    },
+    goToAboutPage() {
+      if (this.$route.path !== '/about'){
+        this.$router.push('/about')
+      }
+    },
+    goToAllProjectPage() {
+      if (this.$route.path !== '/allProject'){
+        this.$router.push('/allProject')
+      }
+    },
+    goToBatteryPage() {
+      if (this.$route.path !== '/battery') {
+        this.$router.push('/battery');
+      }
+    },
+    goToSemiconductorPage() {
+      if (this.$route.path !== '/semiconductor') {
+        this.$router.push('/semiconductor');
+      }
+    },
+    goToBioPage() {
+      if (this.$route.path !== '/bio') {
+        this.$router.push('/bio');
+      }
+    },
+    goToProcessDesignPage() {
+      if (this.$route.path !== '/processDesign') {
+        this.$router.push('/processDesign');
+      }
+    },
+    goToMaterialsEnergyPage() {
+      if (this.$route.path !== '/materialsEnergy') {
+        this.$router.push('/materialsEnergy');
+      }
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.updateProgressIndicator);
